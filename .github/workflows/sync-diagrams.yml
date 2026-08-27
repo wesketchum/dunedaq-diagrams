@@ -45,18 +45,64 @@ jobs:
           ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
           fetch-depth: 0
 
+      # The render action's own directory scan (sub-dirs) has no change
+      # detection — it re-renders every .drawio file it finds every run. As
+      # src/ accumulates versioned files that never change again, that cost
+      # only grows. So compute the actual diff ourselves and pass just the
+      # changed files via the action's `files` input instead of scanning.
+      - name: Compute changed diagram files
+        id: changed
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            RANGE="${{ github.event.pull_request.base.sha }}...HEAD"
+          else
+            RANGE="${{ github.event.before }} ${{ github.sha }}"
+          fi
+
+          # Restrict to src/, then filter to .drawio; exclude deletions (D) —
+          # nothing to render for those, the orphan-cleanup step below
+          # handles removing their stale auto-images render instead.
+          changed_files=$(git diff --name-only --diff-filter=ACMR $RANGE -- src \
+            | grep '\.drawio$' || true)
+
+          if [ -z "$changed_files" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          pairs=""
+          while IFS= read -r src_file; do
+            rel="${src_file#src/}"
+            dest="auto-images/${rel%.drawio}.svg"
+            pairs="${pairs:+$pairs,}${dest}=${src_file}"
+          done <<< "$changed_files"
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          echo "files=$pairs" >> "$GITHUB_OUTPUT"
+          echo "Changed diagrams to render:"
+          echo "$changed_files"
+
       # Referenced as `owner/repo@tag` (not `docker://...`) so the action.yml's
       # args: mapping actually applies the with: inputs below as CLI flags —
       # a bare `docker://ghcr.io/...` reference ignores action.yml entirely and
       # ignores these inputs. v1.1.0 is the latest real tag (no "v1" tag exists).
-      - name: Render src/*.drawio to co-located SVGs
+      #
+      # sub-dirs points at auto-images/ (never contains .drawio sources) purely
+      # so the action's mandatory directory scan finds nothing to add on top
+      # of the explicit `files` list — the actual file selection happens via
+      # `files`, computed above from the git diff, not via scanning src/.
+      - name: Render changed src/*.drawio to co-located SVGs
+        if: steps.changed.outputs.has_changes == 'true'
         uses: racklet/render-drawio-action@v1.1.0
         with:
           formats: 'svg'
-          sub-dirs: 'src'
+          sub-dirs: 'auto-images'
           skip-dirs: '.git'
+          files: ${{ steps.changed.outputs.files }}
 
       - name: Move renders into mirrored auto-images/ tree
+        if: steps.changed.outputs.has_changes == 'true'
         run: |
           set -euo pipefail
           shopt -s globstar nullglob
