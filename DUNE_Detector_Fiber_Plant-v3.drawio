@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0" pages="3">
   <diagram id="Ed1QGJjRGFYAXu2QZiEc" name="HD Fiber Plant">
-    <mxGraphModel dx="1780" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1499" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,6 +26,15 @@
         </mxCell>
         <mxCell id="xQOQaLgyXPjCW7tdhDXZ-4" parent="aXSz0pKBGnN55Wil8eHR-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="1x used, 3x unused 10G per DAPHNE" vertex="1">
           <mxGeometry height="30" width="230" x="15.879999999999995" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="aXSz0pKBGnN55Wil8eHR-14" edge="1" parent="aXSz0pKBGnN55Wil8eHR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.005;exitY=0.345;exitDx=0;exitDy=0;entryX=0.967;entryY=-0.035;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=24;exitPerimeter=0;" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;MTP12&lt;/span&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="317.12" y="167" />
+            </Array>
+            <mxPoint x="120.59999999999991" y="166.70000000000005" as="sourcePoint" />
+            <mxPoint x="404.80200000000013" y="166.35125000000005" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="aXSz0pKBGnN55Wil8eHR-4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=24;" value="HD: 75 x" vertex="1">
           <mxGeometry height="30" width="130" x="40" y="20" as="geometry" />
@@ -208,16 +217,7 @@
         <mxCell id="aXSz0pKBGnN55Wil8eHR-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="10x10G TPC Data" vertex="1">
           <mxGeometry height="60" width="120" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="aXSz0pKBGnN55Wil8eHR-14" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.005;exitY=0.345;exitDx=0;exitDy=0;entryX=0.967;entryY=-0.035;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=24;exitPerimeter=0;" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;MTP12&lt;/span&gt;">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="317.12" y="167" />
-            </Array>
-            <mxPoint x="120.59999999999991" y="166.70000000000005" as="sourcePoint" />
-            <mxPoint x="404.80200000000013" y="166.35125000000005" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FQ_Lx_cqD_M7rsW2AXCy-13" edge="1" parent="1" source="aXSz0pKBGnN55Wil8eHR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.991;exitY=0.66;exitDx=0;exitDy=0;fontSize=24;exitPerimeter=0;entryX=0.933;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" target="aXSz0pKBGnN55Wil8eHR-13" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;MTP12&lt;/span&gt;">
+        <mxCell id="FQ_Lx_cqD_M7rsW2AXCy-13" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.991;exitY=0.66;exitDx=0;exitDy=0;fontSize=24;exitPerimeter=0;entryX=0.933;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;MTP12&lt;/span&gt;">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="287.12" y="191" />
