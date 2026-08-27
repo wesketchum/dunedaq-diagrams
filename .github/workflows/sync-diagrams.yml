@@ -1,0 +1,65 @@
+name: Sync diagram renders
+
+# Renders every src/**/*.drawio into a mirrored auto-images/**/*.svg and pushes
+# the result back onto the PR branch, so reviewers see the rendered diagram
+# (and any render breakage) as part of the PR diff.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**/*.drawio'
+      - '.github/workflows/sync-diagrams.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    # Default GITHUB_TOKEN can't push to a fork's branch, so skip auto-commit
+    # for PRs coming from forks. See docs/README.md for the fork fallback.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Render src/*.drawio to co-located SVGs
+        uses: docker://ghcr.io/racklet/render-drawio-action:v1
+        with:
+          formats: 'svg'
+          sub-dirs: 'src'
+          skip-dirs: '.git'
+
+      - name: Move renders into mirrored auto-images/ tree
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          for f in src/**/*.svg; do
+            rel="${f#src/}"
+            out="auto-images/${rel}"
+            mkdir -p "$(dirname "$out")"
+            mv "$f" "$out"
+          done
+
+      - name: Remove renders whose source no longer exists (keeps structure in sync)
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          for f in auto-images/**/*.svg; do
+            rel="${f#auto-images/}"
+            src_equiv="src/${rel%.svg}.drawio"
+            if [ ! -f "$src_equiv" ]; then
+              echo "Removing orphaned render: $f (no matching $src_equiv)"
+              rm "$f"
+            fi
+          done
+          find auto-images -type d -empty -delete
+
+      - name: Commit regenerated renders back to the PR branch
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: render diagrams for this PR"
+          file_pattern: auto-images/**
