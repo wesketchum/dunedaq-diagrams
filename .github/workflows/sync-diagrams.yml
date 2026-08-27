@@ -29,9 +29,15 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    # Default GITHUB_TOKEN can't push to a fork's branch, so skip auto-commit
-    # for PRs coming from forks. See docs/README.md for the fork fallback.
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    # Skip runs triggered by our own auto-commit push (it generates a
+    # pull_request:synchronize event even though it used GITHUB_TOKEN),
+    # otherwise every render commit re-triggers this workflow.
+    # Default GITHUB_TOKEN also can't push to a fork's branch, so skip
+    # auto-commit for PRs coming from forks too. See docs/README.md for the
+    # fork fallback.
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
     steps:
       - name: Checkout triggering branch
         uses: actions/checkout@v4
