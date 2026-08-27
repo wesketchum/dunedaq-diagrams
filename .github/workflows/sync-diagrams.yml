@@ -1,0 +1,88 @@
+name: Sync diagram renders
+
+# Renders every src/**/*.drawio into a mirrored auto-images/**/*.svg and pushes
+# the result back onto whichever branch triggered the run:
+# - on a PR touching src/**/*.drawio, so reviewers see the rendered diagram
+#   (and any render breakage) as part of the PR diff
+# - on push to main, so edits committed directly to main (e.g. via the
+#   app.diagrams.net GitHub integration, which saves straight to the ref it
+#   opened) don't leave auto-images/ silently stale
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**/*.drawio'
+      - '.github/workflows/sync-diagrams.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**/*.drawio'
+      - '.github/workflows/sync-diagrams.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    # Skip runs triggered by our own auto-commit push (it generates a
+    # pull_request:synchronize event even though it used GITHUB_TOKEN),
+    # otherwise every render commit re-triggers this workflow.
+    # Default GITHUB_TOKEN also can't push to a fork's branch, so skip
+    # auto-commit for PRs coming from forks too. See docs/README.md for the
+    # fork fallback.
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
+    steps:
+      - name: Checkout triggering branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+          fetch-depth: 0
+
+      # Referenced as `owner/repo@tag` (not `docker://...`) so the action.yml's
+      # args: mapping actually applies the with: inputs below as CLI flags —
+      # a bare `docker://ghcr.io/...` reference ignores action.yml entirely and
+      # ignores these inputs. v1.1.0 is the latest real tag (no "v1" tag exists).
+      - name: Render src/*.drawio to co-located SVGs
+        uses: racklet/render-drawio-action@v1.1.0
+        with:
+          formats: 'svg'
+          sub-dirs: 'src'
+          skip-dirs: '.git'
+
+      - name: Move renders into mirrored auto-images/ tree
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          for f in src/**/*.svg; do
+            rel="${f#src/}"
+            out="auto-images/${rel}"
+            mkdir -p "$(dirname "$out")"
+            mv "$f" "$out"
+          done
+
+      - name: Remove renders whose source no longer exists (keeps structure in sync)
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          for f in auto-images/**/*.svg; do
+            rel="${f#auto-images/}"
+            src_equiv="src/${rel%.svg}.drawio"
+            if [ ! -f "$src_equiv" ]; then
+              echo "Removing orphaned render: $f (no matching $src_equiv)"
+              rm "$f"
+            fi
+          done
+          find auto-images -mindepth 1 -type d -empty -delete
+
+      - name: Commit regenerated renders
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: sync auto-images with src diagrams"
+          file_pattern: auto-images/**
