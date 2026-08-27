@@ -1,10 +1,19 @@
 name: Sync diagram renders
 
 # Renders every src/**/*.drawio into a mirrored auto-images/**/*.svg and pushes
-# the result back onto the PR branch, so reviewers see the rendered diagram
-# (and any render breakage) as part of the PR diff.
+# the result back onto whichever branch triggered the run:
+# - on a PR touching src/**/*.drawio, so reviewers see the rendered diagram
+#   (and any render breakage) as part of the PR diff
+# - on push to main, so edits committed directly to main (e.g. via the
+#   app.diagrams.net GitHub integration, which saves straight to the ref it
+#   opened) don't leave auto-images/ silently stale
 on:
   pull_request:
+    branches: [main]
+    paths:
+      - 'src/**/*.drawio'
+      - '.github/workflows/sync-diagrams.yml'
+  push:
     branches: [main]
     paths:
       - 'src/**/*.drawio'
@@ -13,21 +22,29 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: render-${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   render:
     runs-on: ubuntu-latest
     # Default GITHUB_TOKEN can't push to a fork's branch, so skip auto-commit
     # for PRs coming from forks. See docs/README.md for the fork fallback.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - name: Checkout PR branch
+      - name: Checkout triggering branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
           fetch-depth: 0
 
+      # Referenced as `owner/repo@tag` (not `docker://...`) so the action.yml's
+      # args: mapping actually applies the with: inputs below as CLI flags —
+      # a bare `docker://ghcr.io/...` reference ignores action.yml entirely and
+      # ignores these inputs. v1.1.0 is the latest real tag (no "v1" tag exists).
       - name: Render src/*.drawio to co-located SVGs
-        uses: docker://ghcr.io/racklet/render-drawio-action:v1
+        uses: racklet/render-drawio-action@v1.1.0
         with:
           formats: 'svg'
           sub-dirs: 'src'
@@ -56,10 +73,10 @@ jobs:
               rm "$f"
             fi
           done
-          find auto-images -type d -empty -delete
+          find auto-images -mindepth 1 -type d -empty -delete
 
-      - name: Commit regenerated renders back to the PR branch
+      - name: Commit regenerated renders
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: render diagrams for this PR"
+          commit_message: "chore: sync auto-images with src diagrams"
           file_pattern: auto-images/**
