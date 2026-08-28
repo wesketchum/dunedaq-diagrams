@@ -86,7 +86,9 @@ jobs:
       # Referenced as `owner/repo@tag` (not `docker://...`) so the action.yml's
       # args: mapping actually applies the with: inputs below as CLI flags —
       # a bare `docker://ghcr.io/...` reference ignores action.yml entirely and
-      # ignores these inputs. v1.1.0 is the latest real tag (no "v1" tag exists).
+      # ignores these inputs. Pinned to v1.1.0's commit SHA rather than the tag:
+      # the project is archived/unmaintained, so nothing enforces that the tag
+      # can't move or disappear — a SHA can't be silently changed underneath us.
       #
       # sub-dirs points at auto-images/ (never contains .drawio sources) purely
       # so the action's mandatory directory scan finds nothing to add on top
@@ -94,23 +96,33 @@ jobs:
       # `files`, computed above from the git diff, not via scanning src/.
       - name: Render changed src/*.drawio to co-located SVGs
         if: steps.changed.outputs.has_changes == 'true'
-        uses: racklet/render-drawio-action@v1.1.0
+        uses: racklet/render-drawio-action@fb6c7b072b74b2c12c2f1dfe6950fca65581aa2e # v1.1.0
         with:
           formats: 'svg'
           sub-dirs: 'auto-images'
           skip-dirs: '.git'
           files: ${{ steps.changed.outputs.files }}
 
-      - name: Move renders into mirrored auto-images/ tree
+      # Stamps each freshly-rendered SVG with its source path, the commit it
+      # was rendered from, and a render timestamp, then moves it into the
+      # mirrored auto-images/ tree. The stamp is a plain XML comment inserted
+      # right after the XML declaration/DOCTYPE preamble draw.io emits — never
+      # rendered by any viewer, safe if the file is ever re-opened in draw.io.
+      - name: Stamp and move renders into mirrored auto-images/ tree
         if: steps.changed.outputs.has_changes == 'true'
         run: |
           set -euo pipefail
           shopt -s globstar nullglob
+          commit_sha="$(git rev-parse HEAD)"
+          rendered_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           for f in src/**/*.svg; do
             rel="${f#src/}"
+            src_file="src/${rel%.svg}.drawio"
             out="auto-images/${rel}"
             mkdir -p "$(dirname "$out")"
-            mv "$f" "$out"
+            comment="<!-- rendered from ${src_file} at commit ${commit_sha} on ${rendered_at} -->"
+            { head -n 2 "$f"; echo "$comment"; tail -n +3 "$f"; } > "$out"
+            rm "$f"
           done
 
       - name: Remove renders whose source no longer exists (keeps structure in sync)
