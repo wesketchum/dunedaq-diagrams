@@ -75,6 +75,11 @@ jobs:
           while IFS= read -r src_file; do
             rel="${src_file#src/}"
             dest="auto-images/${rel%.drawio}.svg"
+            # The render action writes straight to `dest` and never creates
+            # missing parent directories itself, so pre-create the mirrored
+            # subdirectory here or drawio fails with "Error writing to file"
+            # for any src/ subdirectory not yet present under auto-images/.
+            mkdir -p "$(dirname "$dest")"
             pairs="${pairs:+$pairs,}${dest}=${src_file}"
           done <<< "$changed_files"
 
