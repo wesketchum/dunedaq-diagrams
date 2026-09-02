@@ -45,11 +45,11 @@ jobs:
           ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
           fetch-depth: 0
 
-      # The render action's own directory scan (sub-dirs) has no change
-      # detection — it re-renders every .drawio file it finds every run. As
-      # src/ accumulates versioned files that never change again, that cost
-      # only grows. So compute the actual diff ourselves and pass just the
-      # changed files via the action's `files` input instead of scanning.
+      # scripts/render-images.sh has no change detection of its own — it
+      # renders whatever file list it's given, or every src/**/*.drawio with
+      # --all. As src/ accumulates versioned files that never change again,
+      # re-rendering everything every run only gets more wasteful, so compute
+      # the actual diff ourselves and pass just the changed files.
       - name: Compute changed diagram files
         id: changed
         run: |
@@ -61,91 +61,56 @@ jobs:
           fi
 
           # Restrict to src/, then filter to .drawio; exclude deletions (D) —
-          # nothing to render for those, the orphan-cleanup step below
-          # handles removing their stale auto-images render instead.
+          # nothing to render for those, render-images.sh's orphan cleanup
+          # (which always runs) handles removing their stale render instead.
           changed_files=$(git diff --name-only --diff-filter=ACMR $RANGE -- src \
             | grep '\.drawio$' || true)
 
-          if [ -z "$changed_files" ]; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          pairs=""
-          while IFS= read -r src_file; do
-            rel="${src_file#src/}"
-            dest="auto-images/${rel%.drawio}.svg"
-            # The render action writes straight to `dest` and never creates
-            # missing parent directories itself, so pre-create the mirrored
-            # subdirectory here or drawio fails with "Error writing to file"
-            # for any src/ subdirectory not yet present under auto-images/.
-            mkdir -p "$(dirname "$dest")"
-            pairs="${pairs:+$pairs,}${dest}=${src_file}"
-          done <<< "$changed_files"
-
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          echo "files=$pairs" >> "$GITHUB_OUTPUT"
           echo "Changed diagrams to render:"
           echo "$changed_files"
 
-      # Referenced as `owner/repo@tag` (not `docker://...`) so the action.yml's
-      # args: mapping actually applies the with: inputs below as CLI flags —
-      # a bare `docker://ghcr.io/...` reference ignores action.yml entirely and
-      # ignores these inputs. Pinned to v1.1.0's commit SHA rather than the tag:
-      # the project is archived/unmaintained, so nothing enforces that the tag
-      # can't move or disappear — a SHA can't be silently changed underneath us.
-      #
-      # sub-dirs points at auto-images/ (never contains .drawio sources) purely
-      # so the action's mandatory directory scan finds nothing to add on top
-      # of the explicit `files` list — the actual file selection happens via
-      # `files`, computed above from the git diff, not via scanning src/.
-      - name: Render changed src/*.drawio to co-located SVGs
-        if: steps.changed.outputs.has_changes == 'true'
-        uses: racklet/render-drawio-action@fb6c7b072b74b2c12c2f1dfe6950fca65581aa2e # v1.1.0
-        with:
-          formats: 'svg'
-          sub-dirs: 'auto-images'
-          skip-dirs: '.git'
-          files: ${{ steps.changed.outputs.files }}
+          {
+            echo "files<<EOF"
+            echo "$changed_files"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
-      # Stamps each freshly-rendered SVG with its source path, the commit it
-      # was rendered from, and a render timestamp, then moves it into the
-      # mirrored auto-images/ tree. The stamp is a plain XML comment inserted
-      # right after the XML declaration/DOCTYPE preamble draw.io emits — never
-      # rendered by any viewer, safe if the file is ever re-opened in draw.io.
-      - name: Stamp and move renders into mirrored auto-images/ tree
-        if: steps.changed.outputs.has_changes == 'true'
+      # Pinned to the same release the repo's dev environment already uses
+      # locally (v31.3.2), rather than "latest" — a past drawio-desktop
+      # release introduced a CLI-flag-parsing regression, so tracking latest
+      # risks silently breaking CI on an upstream release.
+      - name: Install draw.io desktop CLI
+        if: steps.changed.outputs.files != ''
         run: |
           set -euo pipefail
-          shopt -s globstar nullglob
-          commit_sha="$(git rev-parse HEAD)"
-          rendered_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          for f in src/**/*.svg; do
-            rel="${f#src/}"
-            src_file="src/${rel%.svg}.drawio"
-            out="auto-images/${rel}"
-            mkdir -p "$(dirname "$out")"
-            comment="<!-- rendered from ${src_file} at commit ${commit_sha} on ${rendered_at} -->"
-            { head -n 2 "$f"; echo "$comment"; tail -n +3 "$f"; } > "$out"
-            rm "$f"
-          done
+          curl -fsSL -o drawio.deb \
+            https://github.com/jgraph/drawio-desktop/releases/download/v31.3.2/drawio-amd64-31.3.2.deb
+          sudo apt-get update
+          sudo apt-get install -y xvfb ./drawio.deb
+          rm drawio.deb
 
-      - name: Remove renders whose source no longer exists (keeps structure in sync)
+      # Renders the changed files into a mirrored auto-images/ tree, stamps
+      # each with its source path/commit/timestamp, and (always, even with
+      # no changed files — e.g. a .drawio was deleted) removes any
+      # auto-images/ renders whose source no longer exists.
+      - name: Render changed diagrams and sync auto-images/
+        env:
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
         run: |
           set -euo pipefail
-          shopt -s globstar nullglob
-          for f in auto-images/**/*.svg; do
-            rel="${f#auto-images/}"
-            src_equiv="src/${rel%.svg}.drawio"
-            if [ ! -f "$src_equiv" ]; then
-              echo "Removing orphaned render: $f (no matching $src_equiv)"
-              rm "$f"
-            fi
-          done
-          find auto-images -mindepth 1 -type d -empty -delete
+          files=()
+          while IFS= read -r f; do
+            [ -n "$f" ] && files+=("$f")
+          done <<< "$CHANGED_FILES"
+          scripts/render-images.sh "${files[@]}"
 
-      - name: Commit regenerated renders
+      # Regenerates unconditionally so the index always reflects the current
+      # src/ and auto-images/ trees, not just what changed this run.
+      - name: Regenerate diagram index
+        run: scripts/generate-index.py
+
+      - name: Commit regenerated renders and index
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: sync auto-images with src diagrams"
-          file_pattern: auto-images/**
+          commit_message: "chore: sync auto-images and diagram index with src diagrams"
+          file_pattern: 'auto-images/** docs/diagram-index.md'
