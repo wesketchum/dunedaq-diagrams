@@ -4,7 +4,9 @@ This repo stores draw.io diagrams as editable sources under [`src/`](../src),
 with rendered previews auto-generated into [`auto-images/`](../auto-images)
 by CI. **Never hand-edit `auto-images/`** — it's regenerated on every PR that
 touches `src/**/*.drawio` (and on every push to `main`) and any manual
-changes will be overwritten.
+changes will be overwritten. Each rendered SVG carries an XML comment near
+the top recording which source file, commit, and timestamp it was rendered
+from (`grep "rendered from" auto-images/*.svg` to check).
 
 Each `.drawio` source holds exactly **one page**. draw.io's own export only
 renders a file's active/first page, so a multi-page file silently drops every
