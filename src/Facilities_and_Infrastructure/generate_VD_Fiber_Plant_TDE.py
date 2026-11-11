@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
-"""Generate the VD TDE fiber plant draw.io diagram. Usage: gen_tde.py <out.drawio>"""
-import sys
+"""Generate the VD TDE fiber plant draw.io diagram.
+
+Writes DUNE_Detector_Fiber_Plant-v<version>-VD_Fiber_Plant_TDE.drawio next to this script
+unless --output is given.
+"""
+import argparse
+from pathlib import Path
 import xml.etree.ElementTree as ET
+
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument("--version", default="4", help="version number for the file name and the diagram stamp (default: 4)")
+parser.add_argument("--output", type=Path, help="output .drawio path (default: versioned name next to this script)")
+args = parser.parse_args()
+OUT = args.output or Path(__file__).parent / f"DUNE_Detector_Fiber_Plant-v{args.version}-VD_Fiber_Plant_TDE.drawio"
 
 mxfile = ET.Element("mxfile", host="Electron")
 diagram = ET.SubElement(mxfile, "diagram", id="vd-tde-fiber-plant", name="VD Fiber Plant TDE")
@@ -193,7 +204,7 @@ vertex("totals", table, "text;html=1;overflow=fill;strokeColor=none;fillColor=no
        90, 1460, 660, 380)
 
 vertex("notes",
-       "<b>Draft 2026-11-10</b><br>"
+       f"<b>v{args.version}, draft 2026-11-11</b><br>"
        "Sources: DAQ VD Fiber Plant v3; &quot;VD onDetector Rack View of Cabling&quot; (TMS, stamped 16SEPT2026); "
        "&quot;VD Cryostat 27U Detector Racks&quot; naming drawing (20 N + 20 S racks); "
        "&quot;DTS to TDE White Rabbit Synchronisation Interface&quot; (EDMS 3482906, draft v7.0, 26 Oct 2026).<br><br>"
@@ -213,4 +224,5 @@ vertex("notes",
        "rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;", 790, 1460, 960, 380)
 
 ET.indent(mxfile, space="  ")
-ET.ElementTree(mxfile).write(sys.argv[1], encoding="unicode")
+ET.ElementTree(mxfile).write(OUT, encoding="unicode")
+print(f"Wrote {OUT}")
