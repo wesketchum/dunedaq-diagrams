@@ -224,7 +224,7 @@
         <mxCell id="coaxa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="10 MHz&lt;br&gt;1PPS" edge="1" source="intfa" target="gma">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="wrl2a" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="l2ma">
+        <mxCell id="wrl2a" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="l2ma">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="l2mb" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR switch L2-2-2 M&lt;br&gt;(extra ports)" vertex="1">
@@ -239,22 +239,22 @@
         <mxCell id="coaxb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="10 MHz&lt;br&gt;1PPS" edge="1" source="intfb" target="gmb">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="wrl2b" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="l2mb">
+        <mxCell id="wrl2b" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="l2mb">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="split" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Passive optical&lt;br&gt;splitter / combiner" vertex="1">
           <mxGeometry x="890" y="137" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="spa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfa">
+        <mxCell id="spa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#2F5FB3;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfa">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="spb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfb">
+        <mxCell id="spb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#2F5FB3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfb">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="upa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2ma" target="l1">
+        <mxCell id="upa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2ma" target="l1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="upb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2mb" target="l1">
+        <mxCell id="upb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2mb" target="l1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="pulse" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Pulse generators x2&lt;br&gt;(network controlled)" vertex="1">
@@ -272,10 +272,10 @@
         <mxCell id="p-wr" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="sync&lt;br&gt;pulse" edge="1" source="pulse" target="wrtdc">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gma-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="wrtdc">
+        <mxCell id="gma-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="wrtdc">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gmb-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="wrtdc">
+        <mxCell id="gmb-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="wrtdc">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="sync-note" parent="mezz" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="Sync check: each pulse generator feeds both DTS TDCs and both WR TDCs (3.3V LVTTL)" vertex="1">
@@ -291,7 +291,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="wrfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;fillColor=#97D077;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.552;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="8x SM fiber, 1000Base-BX, 1 per uTCA crate&lt;br&gt;(4 to each Horizontal Container)&lt;br&gt;direct to chimneys, not via the 27U rack" edge="1" source="l1" target="c2">
+        <mxCell id="wrfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;startArrow=block;fillColor=#97D077;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.552;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="8x SM fiber, 1000Base-BX, 1 per uTCA crate&lt;br&gt;(4 to each Horizontal Container)&lt;br&gt;direct to chimneys, not via the 27U rack" edge="1" source="l1" target="c2">
           <mxGeometry relative="1" x="0.5" as="geometry" />
         </mxCell>
         <mxCell id="hbar" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="DAQ Barracks" vertex="1">
@@ -300,7 +300,7 @@
         <mxCell id="dts" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS master&lt;br&gt;(2x DTS uTCA crate)" vertex="1">
           <mxGeometry x="1250" y="1142" width="180" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="dtsfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;fillColor=#7EA6E0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x SM fiber (1000Base-BX)" edge="1" source="dts" target="split">
+        <mxCell id="dtsfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;startArrow=block;fillColor=#7EA6E0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x SM fiber (1000Base-BX)" edge="1" source="dts" target="split">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ctrlnet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFD6E7;strokeColor=#D6336C;" value="Ctrl network switches in DAQ Barracks&lt;br&gt;(also carry NTP to the WR GMs)" vertex="1">
