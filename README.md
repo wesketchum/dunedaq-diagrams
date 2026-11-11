@@ -20,3 +20,9 @@ be run locally:
   `.drawio` paths to render just those.
 - `scripts/generate-index.py` regenerates `docs/diagram-index.md`. Requires
   only python3.
+- `scripts/vd_fiber_plant/gen_{vd,tde,bde,pds}.py` generate the VD fiber
+  plant diagrams (overview and per subsystem) in
+  `src/Facilities_and_Infrastructure/`. Each takes the output `.drawio` path
+  as its argument and requires only python3. The scripts and the `.drawio`
+  files are not kept in sync automatically: a diagram edited by hand in
+  draw.io is overwritten the next time its script is run.
