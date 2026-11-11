@@ -1,0 +1,158 @@
+<mxfile host="Electron">
+  <diagram id="vd-pds-fiber-plant" name="VD Fiber Plant PDS">
+    <mxGraphModel dx="1463" dy="966" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=24;" value="VD PDS" vertex="1">
+          <mxGeometry x="90" y="20" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pds-count" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;align=left;" value="40 DAPHNE drawn, 1 per 27U rack. The PDS warm electronics sit in the detector-top rack.&lt;br&gt;DAQ fiber and network connections only (signal, laser and power-over-fiber fibers to the cryostat are not drawn)." vertex="1">
+          <mxGeometry x="90" y="64" width="900" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rack" parent="1" style="swimlane;startSize=26;fillColor=#FFD6E7;strokeColor=#D6336C;" value="27U Detector Top rack (40X: DR_2bbN / DR_2bbS)" vertex="1">
+          <mxGeometry x="90" y="210" width="810" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="split" parent="rack" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Timing splitter 1:6&lt;br&gt;&lt;br&gt;shared with BDE&lt;br&gt;(2 outputs,&lt;br&gt;1 per PTC)" vertex="1">
+          <mxGeometry x="25" y="200" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="daphne" parent="rack" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;" value="DAPHNE" vertex="1">
+          <mxGeometry x="180" y="40" width="230" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="d-data" parent="daphne" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="4x 10G Data (LC duplex)&lt;br&gt;1 active, 3 patched for debug" vertex="1">
+          <mxGeometry x="30" y="30" width="180" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="d-ctrl" parent="daphne" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="105" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d-tim" parent="daphne" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="DTS timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="165" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lcm" parent="rack" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;" value="Light Calibration Module (LCM)" vertex="1">
+          <mxGeometry x="180" y="290" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="l-ctrl" parent="lcm" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="30" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="l-tim" parent="lcm" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="DTS timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="85" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="pof" parent="rack" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=12;fillColor=#FFE6CC;strokeColor=#D79B00;" value="Power over Fiber (PoF) x2" vertex="1">
+          <mxGeometry x="180" y="460" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p-ctrl" parent="pof" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFE6CC;strokeColor=#D79B00;" value="1x1G Ctrl each&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="30" width="180" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="aggsw" parent="rack" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#FFD6E7;strokeColor=#D6336C;" value="1G Ctrl&lt;br&gt;agg.&lt;br&gt;switch" vertex="1">
+          <mxGeometry x="550" y="240" width="100" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aggsw-note" parent="rack" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="28+ port 1G Detector Top&lt;br&gt;Aggregating switch&lt;br&gt;(4 ports used by PDS)" vertex="1">
+          <mxGeometry x="510" y="180" width="190" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pp27" parent="rack" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;horizontal=0;fillColor=#FFD6E7;strokeColor=#D6336C;" value="Patch Panel (27U)" vertex="1">
+          <mxGeometry x="760" y="40" width="32" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FFB570;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.1078;entryDx=0;entryDy=0;entryPerimeter=0;" value="4x LC duplex 10G MM OM4 (8f) to 27U patch panel" edge="1" source="d-data" target="pp27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="k1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D79B00;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" value="1x RJ45 Cu" edge="1" source="d-ctrl" target="aggsw">
+          <mxGeometry relative="1" x="-0.5" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="380" />
+              <mxPoint x="560" y="486" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k2" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D79B00;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5694;entryDx=0;entryDy=0;entryPerimeter=0;" value="1x RJ45 Cu" edge="1" source="l-ctrl" target="aggsw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="k3" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D79B00;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.85;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x RJ45 Cu" edge="1" source="p-ctrl" target="aggsw">
+          <mxGeometry relative="1" x="-0.5" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="722.5" />
+              <mxPoint x="590" y="603" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="up" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D6336C;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x LC duplex&lt;br&gt;(2x10G)" edge="1" source="aggsw" target="pp27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t-d" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D79B00;exitX=1;exitY=0.1304;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="SM" edge="1" source="split" target="d-tim">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t-l" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D79B00;exitX=1;exitY=0.8587;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="SM" edge="1" source="split" target="l-tim">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ppdaq" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;horizontal=0;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Patch Panel (DAQ Barracks)" vertex="1">
+          <mxGeometry x="1170" y="250" width="32" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="h1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="PDS Data" vertex="1">
+          <mxGeometry x="976" y="240" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="2 active fibers (1x10G),&lt;br&gt;6 patched for debug, 4 dark" vertex="1">
+          <mxGeometry x="926" y="266" width="220" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FF99CC;exitX=1;exitY=0.1078;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.1078;entryDx=0;entryDy=0;entryPerimeter=0;" value="MTP12 10G MM OM4 (12f) to DAQ" edge="1" source="pp27" target="ppdaq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="Ctrl Data" vertex="1">
+          <mxGeometry x="976" y="466" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="4 active fibers (2x10G uplinks),&lt;br&gt;shared by all subsystems in the rack" vertex="1">
+          <mxGeometry x="926" y="496" width="220" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tc" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FF99CC;startArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="MTP12 10G MM OM4 (12f) to DAQ" edge="1" source="pp27" target="ppdaq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctrlsw" parent="1" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#FFD6E7;strokeColor=#D6336C;" value="" vertex="1">
+          <mxGeometry x="1260" y="495" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ctrlsw-note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Ctrl network switch in DAQ Barracks" vertex="1">
+          <mxGeometry x="1225" y="590" width="130" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#2F5FB3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2xLC" edge="1" source="ppdaq" target="ctrlsw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rosw" parent="1" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Readout&lt;br&gt;Switch in&lt;br&gt;DAQ&lt;br&gt;Barracks" vertex="1">
+          <mxGeometry x="1400" y="200" width="100" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="rosw-note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="1 switch for all VD PDS:&lt;br&gt;4 DAPHNE per 40GBASE-SR4 QSFP+&lt;br&gt;breakout port (4x10G),&lt;br&gt;10 DAPHNE per 100G uplink" vertex="1">
+          <mxGeometry x="1350" y="430" width="220" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=1;exitY=0.1078;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="1x10G active" edge="1" source="ppdaq" target="rosw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="server" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="PDS&lt;br&gt;Readout Servers&lt;br&gt;4x100G inputs each&lt;br&gt;&lt;br&gt;40 DAPHNE = 4 uplinks&lt;br&gt;(spec: 42 DAPHNE, 5 uplinks&lt;br&gt;over 2 servers)" vertex="1">
+          <mxGeometry x="1700" y="237.5" width="170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="q1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#7EA6E0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="QSFP28 100G AOC" edge="1" source="rosw" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fanout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS fanout&lt;br&gt;(dedicated rack on the cryostat roof,&lt;br&gt;serves all 40 racks)" vertex="1">
+          <mxGeometry x="90" y="980" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="feed" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;startArrow=block;fillColor=#7EA6E0;exitX=0.3;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x SM LC/APC fiber per 27U rack&lt;br&gt;(1 active, 1 spare; 80 total),&lt;br&gt;direct from fanout rack,&lt;br&gt;not via 27U patch panel" edge="1" source="fanout" target="split">
+          <mxGeometry relative="1" x="-0.53" as="geometry" />
+        </mxCell>
+        <mxCell id="hbar" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="DAQ Barracks" vertex="1">
+          <mxGeometry x="1250" y="940" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dts" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS master&lt;br&gt;(2x DTS uTCA crate)" vertex="1">
+          <mxGeometry x="1250" y="980" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dtsfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;startArrow=block;fillColor=#7EA6E0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="SM fiber, DTS master to roof fanout rack (count TBD)" edge="1" source="dts" target="fanout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;whiteSpace=wrap;overflow=fill;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;" value="&lt;table cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;height:100%;font-size:12px;&quot;&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; align=&quot;left&quot;&gt;Colour = who purchases&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#FFE6CC;border:1px solid #D79B00;width:40px;&quot;&gt;&lt;/td&gt;&lt;td&gt;PDS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#DAE8FC;border:1px solid #6C8EBF;&quot;&gt;&lt;/td&gt;&lt;td&gt;DAQ&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#FFD6E7;border:1px solid #D6336C;&quot;&gt;&lt;/td&gt;&lt;td&gt;FDC I&amp;amp;I&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;Thick arrows: fiber trunks. Thin solid: patch / copper.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+          <mxGeometry x="1540" y="20" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="totals" parent="1" style="text;html=1;overflow=fill;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;height:100%;font-size:12px;&quot;&gt;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;PDS totals&lt;/th&gt;&lt;th&gt;Per 27U rack&lt;/th&gt;&lt;th&gt;40 racks&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;DAPHNE&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;40 (spec: 42)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;10G data links patched to 27U panel (LC duplex)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;4&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;160&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Active 10G data links&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Active data fibers&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;MTP12 data trunks to DAQ barracks (2 active + 6 debug + 4 dark)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1G Ctrl ports on aggregating switch (DAPHNE, LCM, 2x PoF)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;4&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;160&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Timing splitters 1:6 (shared with BDE; 2 outputs used by PDS)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;SM timing fibers, roof fanout rack to 27U rack (1 active + 1 spare)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;SM timing fibers, splitter to DAPHNE / LCM&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;QSFP+ 4x10G breakout ports on readout switch&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1 per 4&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;10 (spec: 11)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;100G uplinks, readout switch to servers&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1 per 10&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;4 (spec: 5)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PDS readout switches&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PDS readout servers (4x100G inputs)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+          <mxGeometry x="90" y="1090" width="660" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="notes" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;" value="&lt;b&gt;v4, draft 2026-11-11&lt;/b&gt;&lt;br&gt;Sources: DAQ VD Fiber Plant v3; &amp;quot;VD onDetector Rack View of Cabling&amp;quot; (TMS, stamped 16SEPT2026); &amp;quot;VD Cryostat 27U Detector Racks&amp;quot; naming drawing (20 N + 20 S racks); &amp;quot;DAQ Readout Network&amp;quot; PRR specification (EDMS 3463072, v1.0, 21 May 2026).&lt;br&gt;&lt;br&gt;&lt;b&gt;Open items&lt;/b&gt;&lt;br&gt;1. The readout network specification counts 42 VD DAPHNE (11 breakout ports, 5 uplinks, 2 servers); 40 are drawn, one per 27U rack. Where the other two sit is not known (the TMS sheet mentions an extra PDS membrane flange).&lt;br&gt;2. The TMS cabling sheet gives 1-4 10GbE LC links per DAPHNE. Drawn here: 4 patched, 1 active.&lt;br&gt;3. Ctrl ports per rack (DAPHNE 1, LCM 1, PoF 2) are read from the TMS sheet; the PoF count needs confirming.&lt;br&gt;4. DTS fanout rack on the cryostat roof: rack name and location, fanout hardware, number of fibers from the DTS master and its Ctrl network connection are not defined here.&lt;br&gt;5. The patching between the trunk patch panel and the readout switches (top-of-rack patch panels, MTP-12 into 4-way breakout transceivers, per EDMS 3463072) is not drawn in detail.&lt;br&gt;6. Two 10G Ctrl uplinks per 27U rack are assumed.&lt;br&gt;7. Purchase ownership assumed, not confirmed: racks (FDC I&amp;amp;I); patch cord from the 1G switch to the 27U patch panel (FDC I&amp;amp;I).&lt;br&gt;8. Follow-up: who purchases the 2xLC patch cord from the DAQ barracks patch panel to the Ctrl network switch (drawn as DAQ)." vertex="1">
+          <mxGeometry x="790" y="1090" width="1080" height="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
