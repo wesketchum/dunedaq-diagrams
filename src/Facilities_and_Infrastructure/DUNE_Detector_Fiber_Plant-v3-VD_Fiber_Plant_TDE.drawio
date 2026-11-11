@@ -1,0 +1,324 @@
+<mxfile host="Electron">
+  <diagram id="vd-tde-fiber-plant" name="VD Fiber Plant TDE">
+    <mxGraphModel dx="1463" dy="966" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=24;" value="VD TDE" vertex="1">
+          <mxGeometry x="90" y="20" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tde-count" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;align=left;" value="80 Horizontal Containers total, 2 to each 27U rack (8 uTCA crates per rack)" vertex="1">
+          <mxGeometry x="90" y="64" width="440" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="Horizontal Container" vertex="1">
+          <mxGeometry x="90" y="110" width="353" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate0" parent="c1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="33" y="10" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate0-data" parent="c1-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate0-ctrl" parent="c1-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate0-wr" parent="c1-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate1" parent="c1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="193" y="10" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate1-data" parent="c1-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate1-ctrl" parent="c1-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate1-wr" parent="c1-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate2" parent="c1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="33" y="195" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate2-data" parent="c1-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate2-ctrl" parent="c1-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate2-wr" parent="c1-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate3" parent="c1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="193" y="195" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate3-data" parent="c1-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate3-ctrl" parent="c1-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c1-crate3-wr" parent="c1-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="Horizontal Container" vertex="1">
+          <mxGeometry x="90" y="520" width="353" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate0" parent="c2" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="33" y="10" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate0-data" parent="c2-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate0-ctrl" parent="c2-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate0-wr" parent="c2-crate0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate1" parent="c2" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="193" y="10" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate1-data" parent="c2-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate1-ctrl" parent="c2-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate1-wr" parent="c2-crate1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate2" parent="c2" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="33" y="195" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate2-data" parent="c2-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate2-ctrl" parent="c2-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate2-wr" parent="c2-crate2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate3" parent="c2" style="swimlane;horizontal=0;strokeColor=#000000;fontSize=12;fillColor=#FFFFFF;fillColor=#D5E8D4;strokeColor=#82B366;" value="uTCA Crate" vertex="1">
+          <mxGeometry x="193" y="195" width="150" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate3-data" parent="c2-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x25G Data&lt;br&gt;(LC duplex)" vertex="1">
+          <mxGeometry x="30" y="10" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate3-ctrl" parent="c2-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="1x1G Ctrl&lt;br&gt;(RJ45 Cu)" vertex="1">
+          <mxGeometry x="30" y="65" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="c2-crate3-wr" parent="c2-crate3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR timing&lt;br&gt;(1x SM fiber)" vertex="1">
+          <mxGeometry x="30" y="120" width="110" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="rack" parent="1" style="swimlane;startSize=26;fillColor=#FFD6E7;strokeColor=#D6336C;" value="27U Detector Top rack (40X: DR_2bbN / DR_2bbS)" vertex="1">
+          <mxGeometry x="540" y="84" width="300" height="816" as="geometry" />
+        </mxCell>
+        <mxCell id="pp27" parent="rack" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;horizontal=0;fillColor=#FFD6E7;strokeColor=#D6336C;" value="Patch Panel (27U)" vertex="1">
+          <mxGeometry x="250" y="46" width="32" height="750" as="geometry" />
+        </mxCell>
+        <mxCell id="aggsw" parent="rack" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#FFD6E7;strokeColor=#D6336C;" value="1G Ctrl&lt;br&gt;agg.&lt;br&gt;switch" vertex="1">
+          <mxGeometry x="40" y="336" width="100" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aggsw-note" parent="rack" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="28+ port 1G Detector Top&lt;br&gt;Aggregating switch&lt;br&gt;(8 ports used by TDE)" vertex="1">
+          <mxGeometry x="30" y="276" width="190" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#97D077;exitX=1;exitY=0.316;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.133;entryDx=0;entryDy=0;entryPerimeter=0;" value="4x25G Data: 8xLC to MTP8 25G MM OM4 (8f) to 27U" edge="1" source="c1" target="pp27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#97D077;exitX=1;exitY=0.632;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.84;entryDx=0;entryDy=0;entryPerimeter=0;" value="4x25G Data: 8xLC to MTP8 25G MM OM4 (8f) to 27U" edge="1" source="c2" target="pp27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="k1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=1;exitY=0.934;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" value="4x RJ45 Cu&lt;br&gt;(4x1G Ctrl)" edge="1" source="c1" target="aggsw">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="k2" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=1;exitY=0.092;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" value="4x RJ45 Cu&lt;br&gt;(4x1G Ctrl)" edge="1" source="c2" target="aggsw">
+          <mxGeometry relative="1" x="-0.3" as="geometry" />
+        </mxCell>
+        <mxCell id="up" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D6336C;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.507;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x LC duplex&lt;br&gt;(2x10G)" edge="1" source="aggsw" target="pp27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ppdaq" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=20;horizontal=0;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Patch Panel (DAQ Barracks)" vertex="1">
+          <mxGeometry x="1110" y="130" width="32" height="750" as="geometry" />
+        </mxCell>
+        <mxCell id="h1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="TDE Data" vertex="1">
+          <mxGeometry x="916" y="158" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="8 active fibers (4x25G), 4 dark" vertex="1">
+          <mxGeometry x="876" y="186" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FF99CC;exitX=1;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.133;entryDx=0;entryDy=0;entryPerimeter=0;" value="MTP12 25G MM OM4 (12f) to DAQ" edge="1" source="pp27" target="ppdaq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="TDE Data" vertex="1">
+          <mxGeometry x="916" y="688" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="8 active fibers (4x25G), 4 dark" vertex="1">
+          <mxGeometry x="876" y="716" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FF99CC;exitX=1;exitY=0.84;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.84;entryDx=0;entryDy=0;entryPerimeter=0;" value="MTP12 25G MM OM4 (12f) to DAQ" edge="1" source="pp27" target="ppdaq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="Ctrl Data" vertex="1">
+          <mxGeometry x="916" y="426" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="4 active fibers (2x10G uplinks),&lt;br&gt;shared by all subsystems in the rack" vertex="1">
+          <mxGeometry x="866" y="456" width="220" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tc" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#FF99CC;startArrow=block;exitX=1;exitY=0.507;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.507;entryDx=0;entryDy=0;entryPerimeter=0;" value="MTP12 10G MM OM4 (12f) to DAQ" edge="1" source="pp27" target="ppdaq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctrlsw" parent="1" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#FFD6E7;strokeColor=#D6336C;" value="" vertex="1">
+          <mxGeometry x="1200" y="465" width="60" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ctrlsw-note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="Ctrl network switch in DAQ Barracks" vertex="1">
+          <mxGeometry x="1160" y="560" width="130" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#2F5FB3;exitX=1;exitY=0.507;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2xLC" edge="1" source="ppdaq" target="ctrlsw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rosw" parent="1" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Readout&lt;br&gt;Switch in&lt;br&gt;DAQ&lt;br&gt;Barracks" vertex="1">
+          <mxGeometry x="1340" y="380" width="100" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=1;exitY=0.133;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" value="8xLC" edge="1" source="ppdaq" target="rosw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1310" y="230" />
+              <mxPoint x="1310" y="432" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=1;exitY=0.84;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;entryPerimeter=0;" value="8xLC" edge="1" source="ppdaq" target="rosw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1310" y="760" />
+              <mxPoint x="1310" y="588" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="server" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="TDE&lt;br&gt;Readout Server&lt;br&gt;4x100G inputs&lt;br&gt;&lt;br&gt;(reads out 2x 27U racks =&lt;br&gt;4x Horizontal Containers)" vertex="1">
+          <mxGeometry x="1590" y="410" width="160" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="q1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#7EA6E0;exitX=0.75;exitY=0.375;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.3375;entryDx=0;entryDy=0;entryPerimeter=0;" value="QSFP28 100G MM Patch" edge="1" source="rosw" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q2" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=22;endSize=8.66;fillColor=#7EA6E0;exitX=0.75;exitY=0.625;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.6625;entryDx=0;entryDy=0;entryPerimeter=0;" value="QSFP28 100G MM Patch" edge="1" source="rosw" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mezz" parent="1" style="swimlane;startSize=26;fillColor=#FFD6E7;strokeColor=#D6336C;" value="Detector Mezzanine: DTS to TDE White Rabbit (WR) timing, one set for the whole detector" vertex="1">
+          <mxGeometry x="90" y="1010" width="1010" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="L1 WR switch (1 of 20)&lt;br&gt;18 ports: 2 uplinks (1 active),&lt;br&gt;16 downlinks = 2x 27U racks&lt;br&gt;(8 to this rack's crates)" vertex="1">
+          <mxGeometry x="100" y="117" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="l2ma" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR switch L2-1-2 M&lt;br&gt;(extra ports)" vertex="1">
+          <mxGeometry x="350" y="50" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="gma" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR Grand Master L2-1" vertex="1">
+          <mxGeometry x="530" y="50" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="intfa" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS-WR interface unit&lt;br&gt;(incl. DTS TDC)" vertex="1">
+          <mxGeometry x="720" y="50" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="coaxa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="10 MHz&lt;br&gt;1PPS" edge="1" source="intfa" target="gma">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wrl2a" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="l2ma">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2mb" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR switch L2-2-2 M&lt;br&gt;(extra ports)" vertex="1">
+          <mxGeometry x="350" y="230" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="gmb" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR Grand Master L2-2" vertex="1">
+          <mxGeometry x="530" y="230" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="intfb" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS-WR interface unit&lt;br&gt;(incl. DTS TDC)" vertex="1">
+          <mxGeometry x="720" y="230" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="coaxb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="10 MHz&lt;br&gt;1PPS" edge="1" source="intfb" target="gmb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wrl2b" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="l2mb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="split" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Passive optical&lt;br&gt;splitter / combiner" vertex="1">
+          <mxGeometry x="890" y="137" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="spa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="spb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#2F5FB3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="DTS" edge="1" source="split" target="intfb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="upa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2ma" target="l1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="upb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="l2mb" target="l1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pulse" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Pulse generators x2&lt;br&gt;(network controlled)" vertex="1">
+          <mxGeometry x="720" y="140" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="wrtdc" parent="mezz" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#D5E8D4;strokeColor=#82B366;" value="WR TDC x2&lt;br&gt;(PC, SPEC + FMC-DIO)" vertex="1">
+          <mxGeometry x="530" y="140" width="130" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p-dtsa" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="sync pulse" edge="1" source="pulse" target="intfa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-dtsb" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" value="sync pulse" edge="1" source="pulse" target="intfb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-wr" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;dashed=1;strokeColor=#2F5FB3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="sync&lt;br&gt;pulse" edge="1" source="pulse" target="wrtdc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gma-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gma" target="wrtdc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gmb-tdc" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;strokeColor=#4D9900;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="WR" edge="1" source="gmb" target="wrtdc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sync-note" parent="mezz" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;" value="Sync check: each pulse generator feeds both DTS TDCs and both WR TDCs (3.3V LVTTL)" vertex="1">
+          <mxGeometry x="335" y="130" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="mezzsw" parent="mezz" style="triangle;whiteSpace=wrap;html=1;align=left;fillColor=#FFD6E7;strokeColor=#D6336C;" value="1G Ctrl&lt;br&gt;switch&lt;br&gt;(mezz.)" vertex="1">
+          <mxGeometry x="890" y="280" width="90" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="mgmt" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#4D9900;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.833;entryDx=0;entryDy=0;entryPerimeter=0;" value="1G Cu management to DAQ Ctrl network: 24 WR switches, 2 WR TDC PCs, pulse generators" edge="1" source="l1" target="mezzsw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="285" y="1390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wrfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;fillColor=#97D077;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.552;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" value="8x SM fiber, 1000Base-BX, 1 per uTCA crate&lt;br&gt;(4 to each Horizontal Container)&lt;br&gt;direct to chimneys, not via the 27U rack" edge="1" source="l1" target="c2">
+          <mxGeometry relative="1" x="0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hbar" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="DAQ Barracks" vertex="1">
+          <mxGeometry x="1250" y="1095" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dts" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="DTS master&lt;br&gt;(2x DTS uTCA crate)" vertex="1">
+          <mxGeometry x="1250" y="1142" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dtsfib" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontSize=10;width=14;endSize=8.66;fillColor=#7EA6E0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="2x SM fiber (1000Base-BX)" edge="1" source="dts" target="split">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctrlnet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#FFD6E7;strokeColor=#D6336C;" value="Ctrl network switches in DAQ Barracks&lt;br&gt;(also carry NTP to the WR GMs)" vertex="1">
+          <mxGeometry x="1250" y="1315" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mezzup" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;strokeColor=#000000;strokeWidth=1;startArrow=classic;startFill=1;strokeColor=#D6336C;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="Ctrl uplink" edge="1" source="mezzsw" target="ctrlnet">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;whiteSpace=wrap;overflow=fill;strokeColor=#000000;fillColor=none;align=left;verticalAlign=top;" value="&lt;table cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;height:100%;font-size:12px;&quot;&gt;&lt;tr&gt;&lt;th colspan=&quot;2&quot; align=&quot;left&quot;&gt;Colour = who purchases&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#D5E8D4;border:1px solid #82B366;width:40px;&quot;&gt;&lt;/td&gt;&lt;td&gt;TDE&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#DAE8FC;border:1px solid #6C8EBF;&quot;&gt;&lt;/td&gt;&lt;td&gt;DAQ&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background:#FFD6E7;border:1px solid #D6336C;&quot;&gt;&lt;/td&gt;&lt;td&gt;FDC I&amp;amp;I&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;Thick arrows: fiber trunks. Thin solid: patch / copper. Thin dashed: coax.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+          <mxGeometry x="1420" y="20" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="totals" parent="1" style="text;html=1;overflow=fill;strokeColor=none;fillColor=none;align=left;verticalAlign=top;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;height:100%;font-size:12px;&quot;&gt;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;TDE totals&lt;/th&gt;&lt;th&gt;Per 27U rack&lt;/th&gt;&lt;th&gt;40 racks&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;uTCA crates&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;8&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;320&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;25G data links (LC duplex)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;8&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;320&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Active data fibers&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;16&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;640&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;MTP8 breakouts, container to 27U panel&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;MTP12 data trunks to DAQ barracks (8 active + 4 dark)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1G Ctrl ports on aggregating switch (RJ45 Cu)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;8&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;320&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;100G links, readout switch to server&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;TDE readout servers (4x100G inputs, 2 racks each)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;1 per 2&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;20&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;WR timing fibers, mezzanine to crates (SM, TDE-owned)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;8&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;320&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;WR switches on mezzanine (2 GM + 2 L2 + 20 L1)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;24&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;DTS-WR interface units / pulse generators / WR TDCs&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2 each&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;SM timing fibers, DTS master to mezzanine&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1G Ctrl ports on mezzanine for WR (24 switches + 2 TDC PCs)&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;&lt;td align=&quot;center&quot;&gt;26+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+          <mxGeometry x="90" y="1460" width="660" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="notes" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;" value="&lt;b&gt;Draft 2026-11-10&lt;/b&gt;&lt;br&gt;Sources: DAQ VD Fiber Plant v3; &amp;quot;VD onDetector Rack View of Cabling&amp;quot; (TMS, stamped 16SEPT2026); &amp;quot;VD Cryostat 27U Detector Racks&amp;quot; naming drawing (20 N + 20 S racks); &amp;quot;DTS to TDE White Rabbit Synchronisation Interface&amp;quot; (EDMS 3482906, draft v7.0, 26 Oct 2026).&lt;br&gt;&lt;br&gt;&lt;b&gt;Open items&lt;/b&gt;&lt;br&gt;1. The TMS cabling sheet shows 40GbE MTP-12F per crate (64 active fibers, 6-8 MTP12 per rack). The DAQ baseline drawn here is 25G on an LC pair per crate (16 active fibers, 2 MTP12 per rack); the sheet needs updating to match.&lt;br&gt;2. The WR interface document leaves the WR Grand Master / DTS interface location open (cryostat area or CUC). Drawn here on the detector mezzanine, with the DTS master in the DAQ barracks.&lt;br&gt;3. Which mezzanine racks host the WR switches, Grand Masters, DTS interface units and sync-check hardware.&lt;br&gt;4. L1 uplinks land on a Grand Master or its L2 M extension; the exact port map is not drawn.&lt;br&gt;5. Two 10G Ctrl uplinks per 27U rack are assumed.&lt;br&gt;6. Purchase ownership assumed, not confirmed: racks (FDC I&amp;amp;I); patch cord from the 1G switch to the 27U patch panel and the mezzanine Ctrl uplink (FDC I&amp;amp;I); 1G Cu management cables from WR hardware (TDE).&lt;br&gt;7. Follow-up: who purchases the 2xLC patch cord from the DAQ barracks patch panel to the Ctrl network switch (drawn as DAQ)." vertex="1">
+          <mxGeometry x="790" y="1460" width="960" height="380" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
