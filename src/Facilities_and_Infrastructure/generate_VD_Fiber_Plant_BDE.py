@@ -106,7 +106,7 @@ wiec("w2", 510, 675, 540, (("wctrl", 703, 42), ("data", 750, 55)), (("tim", 567,
 
 # 27U detector top rack
 v("rack", "27U Detector Top rack (40X: DR_2bbN / DR_2bbS)", "swimlane;startSize=26;" + INI, 640, 110, 510, 740)
-v("split", "Timing splitter 1:6<br><br>shared with PDS<br>(DAPHNE, LCM)", BOX + DAQ, 680, 370, 110, 240, parent="rack")
+v("split", "Timing splitter 1:8<br><br>shared with PDS<br>(DAPHNE, LCM)", BOX + DAQ, 680, 370, 110, 240, parent="rack")
 v("aggsw", "1G Ctrl<br>agg.<br>switch", TRI + INI, 850, 400, 100, 180, parent="rack")
 v("aggsw-note", "28+ port 1G Detector Top<br>Aggregating switch<br>(14 ports used by BDE)",
   TEXT + "fontSize=11;", 850, 590, 200, 50, parent="rack")
@@ -137,7 +137,7 @@ edge("tc", "MTP12 10G MM OM4 (12f) to DAQ", FLEX + INI_FILL + "startArrow=block;
 # DAQ barracks
 v("ctrlsw", "", TRI + INI, 1510, 445, 60, 90)
 v("ctrlsw-note", "Ctrl network switch in DAQ Barracks", TEXT, 1475, 540, 130, 36)
-edge("u1", "2xLC", THIN + BIDIR + DAQ_LINE + pin(1, 0.5, 0, 0.5), "ppdaq", "ctrlsw")
+edge("u1", "2xLC", THIN + BIDIR + INI_LINE + pin(1, 0.5, 0, 0.5), "ppdaq", "ctrlsw")
 v("rosw", "Readout<br>Switch in<br>DAQ<br>Barracks", TRI + DAQ, 1650, 360, 100, 260)
 v("rosw-note", "9 switches for all VD BDE:<br>12x10G (3 QSFP+ 4x10G breakout<br>ports) per 100G uplink",
   TEXT + "fontSize=11;", 1680, 640, 220, 50)
@@ -152,7 +152,7 @@ edge("q2", "QSFP28 100G AOC", FLEX + DAQ_FILL + pin(0.75, 0.625, 0, 0.6625), "ro
 
 # DTS timing: fanout rack on the cryostat roof, master in the DAQ barracks
 v("fanout", "DTS fanout<br>(dedicated rack on the cryostat roof,<br>serves all 40 racks)", BOX + DAQ, 40, 430, 180, 85)
-edge("feed", "2x SM LC/APC fiber per 27U rack (1 active, 1 spare; 80 total),<br>direct from fanout rack, not via 27U patch panel",
+edge("feed", "2x SM SC/APC fiber per 27U rack (1 active, 1 spare; 80 total),<br>direct from fanout rack, not via 27U patch panel",
      THINFLEX + "startArrow=block;" + DAQ_FILL + pin(1, 0.5, 0, 0.427), "fanout", "split")
 v("hbar", "DAQ Barracks", TEXT + "fontStyle=1;fontSize=14;", 1500, 920, 180, 30)
 v("dts", "DTS master<br>(2x DTS uTCA crate)", BOX + DAQ, 1500, 960, 180, 70)
@@ -194,7 +194,7 @@ v("totals", table, "text;html=1;overflow=fill;strokeColor=none;fillColor=none;al
   40, 1070, 660, 355)
 
 v("notes",
-  f"<b>v{args.version}, draft 2026-11-11</b><br>"
+  f"<b>v{args.version}, draft 2026-11-15</b><br>"
   "Sources: DAQ VD Fiber Plant v3; &quot;VD onDetector Rack View of Cabling&quot; (TMS, stamped 16SEPT2026); "
   "&quot;VD Cryostat 27U Detector Racks&quot; naming drawing (20 N + 20 S racks); "
   "&quot;DAQ Readout Network&quot; PRR specification (EDMS 3463072, v1.0, 21 May 2026).<br><br>"
@@ -206,8 +206,7 @@ v("notes",
   "3. DTS fanout rack on the cryostat roof: rack name and location, fanout hardware, number of fibers from the DTS master "
   "and its Ctrl network connection are not defined here.<br>"
   "4. The 1G ports for the CRP level meter and the DPS PDU on the TMS sheet (&quot;2x1G DPS&quot; in the VD overview) are not drawn here.<br>"
-  "5. Two 10G Ctrl uplinks per 27U rack are assumed.<br>"
-  "6. Follow-up: who purchases the 2xLC patch cord from the DAQ barracks patch panel to the Ctrl network switch (drawn as DAQ).",
+  "5. Two 10G Ctrl uplinks per 27U rack are assumed.",
   "rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;", 740, 1070, 1330, 355)
 
 ET.indent(mxfile, space="  ")

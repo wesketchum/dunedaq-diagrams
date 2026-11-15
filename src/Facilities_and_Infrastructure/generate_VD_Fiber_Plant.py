@@ -106,7 +106,7 @@ v("bde-data", "24x10G Data (LC duplex)", BOX + BDE, 340, 652, 260, 50, parent="b
 
 # 27U detector top rack
 v("rack", "27U Detector Top rack (40X: DR_2bbN / DR_2bbS)", "swimlane;startSize=26;" + INI, 700, 110, 690, 640)
-v("split", "Timing<br>splitter 1:6", BOX + DAQ, 740, 340, 110, 170, parent="rack")
+v("split", "Timing<br>splitter 1:8", BOX + DAQ, 740, 340, 110, 170, parent="rack")
 v("aggsw", "1G Ctrl<br>agg.<br>switch", TRI + INI, 930, 340, 100, 180, parent="rack")
 v("aggsw-note", "28+ port 1G Aggregating switch:<br>TDE 8, BDE 14, PDS 4,<br>CRP level meter 1, DPS PDU 1",
   TEXT + "fontSize=11;", 910, 262, 200, 56, parent="rack")
@@ -115,7 +115,7 @@ v("pds-note", "4x10G patched,<br>1 active", TEXT + "fontSize=11;fontStyle=0;", 9
 v("pp27", "Patch Panel (27U)", PANEL + INI, 1330, 150, 32, 580, parent="rack")
 
 # Into the rack
-edge("d-tde", "TDE Data: 2x MTP8 breakout 25G MM OM4 to 27U", FLEX + TDE_FILL + pin(1, 0.5, 0, 0.069), "tde-data", "pp27")
+edge("d-tde", "TDE Data: 2x MTP12 breakout 25G MM OM4 to 27U", FLEX + TDE_FILL + pin(1, 0.5, 0, 0.069), "tde-data", "pp27")
 edge("d-bde", "BDE Data: 4x MTP12 pigtail 10G MM OM4 to 27U", FLEX + BDE_FILL + pin(1, 0.5, 0, 0.9086), "bde-data", "pp27")
 edge("d-pds", "4x LC duplex", FLEX + PDS_FILL + pin(1, 0.5, 0, 0.7845), "pds", "pp27")
 edge("k-tde", "8x RJ45 Cu", THIN + BIDIR + TDE_LINE + pin(1, 0.5, 0, 0.2), "tde-ctrl", "aggsw",
@@ -153,7 +153,7 @@ for n, sw, srv, link, aoc, ey, h in (
     edge(f"q-{n}", aoc, THINFLEX + DAQ_FILL + pin(1, 0.5, 0, 0.5), f"sw-{n}", f"srv-{n}")
 v("ctrlsw", "", TRI + INI, 1800, 320, 60, 80)
 v("ctrlsw-note", "Ctrl network switch in DAQ Barracks", TEXT + "fontSize=11;", 1870, 342, 130, 36)
-edge("u1", "2x10G", THIN + BIDIR + DAQ_LINE + pin(1, 0.362, 0, 0.5), "ppdaq", "ctrlsw")
+edge("u1", "2x10G", THIN + BIDIR + INI_LINE + pin(1, 0.362, 0, 0.5), "ppdaq", "ctrlsw")
 
 # Timing: White Rabbit on the mezzanine for TDE, DTS fanout on the cryostat roof for BDE and PDS
 v("mezz", "Detector Mezzanine", "swimlane;startSize=26;" + INI, 30, 150, 230, 180)
@@ -162,7 +162,7 @@ v("wr", "White Rabbit network:<br>2 GM + 2 L2 + 20 L1 switches", BOX + TDE, 45, 
 edge("coax", "10 MHz, 1PPS (coax)", THIN + COAX + DAQ_LINE + pin(0.5, 1, 0.5, 0), "intf", "wr")
 edge("wrfib", "8x SM", THIN + BIDIR + TDE_LINE + "strokeWidth=2;" + pin(1, 0.5, 0, 0.5), "wr", "tde-wr")
 v("fanout", "DTS fanout<br>(dedicated rack on the cryostat roof,<br>serves all 40 racks)", BOX + DAQ, 40, 385, 200, 80)
-edge("feed", "2x SM LC/APC per rack (1 active, 1 spare),<br>direct, not via the 27U patch panel",
+edge("feed", "2x SM SC/APC per rack (1 active, 1 spare),<br>direct, not via the 27U patch panel",
      THINFLEX + BOTH + DAQ_FILL + pin(1, 0.5, 0, 0.5), "fanout", "split")
 v("hbar", "DAQ Barracks", TEXT + "fontStyle=1;fontSize=14;", 1700, 770, 180, 26)
 v("dts", "DTS master<br>(2x DTS uTCA crate)", BOX + DAQ, 1700, 800, 180, 70)
@@ -189,7 +189,7 @@ rows = [
     ("PDS: DAPHNE / active 10G data links", "1 / 1", "40 / 40"),
     ("MTP12 trunks to DAQ barracks (TDE 2, BDE 4, PDS 1, Ctrl 1)", "8", "320"),
     ("1G Ctrl ports on aggregating switch", "28", "1120"),
-    ("Timing splitters 1:6 (BDE PTCs, DAPHNE, LCM)", "1", "40"),
+    ("Timing splitters 1:8 (BDE PTCs, DAPHNE, LCM)", "1", "40"),
     ("SM timing fibers, roof fanout rack to 27U rack", "2", "80"),
     ("WR timing fibers, mezzanine to TDE crates", "8", "320"),
     ("Readout switches (TDE 5, BDE 9, PDS 1)", "-", "15"),
@@ -204,7 +204,7 @@ v("totals", table, "text;html=1;overflow=fill;strokeColor=none;fillColor=none;al
   10, 920, 700, 330)
 
 v("notes",
-  f"<b>v{args.version}, draft 2026-11-11</b><br>"
+  f"<b>v{args.version}, draft 2026-11-15</b><br>"
   "Sources: &quot;VD onDetector Rack View of Cabling&quot; (TMS, stamped 16SEPT2026); "
   "&quot;VD Cryostat 27U Detector Racks&quot; naming drawing (20 N + 20 S racks); "
   "&quot;DTS to TDE White Rabbit Synchronisation Interface&quot; (EDMS 3482906, draft v7.0); "

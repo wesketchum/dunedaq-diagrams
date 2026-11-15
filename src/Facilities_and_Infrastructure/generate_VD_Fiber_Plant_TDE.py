@@ -94,8 +94,8 @@ vertex("aggsw-note", "28+ port 1G Detector Top<br>Aggregating switch<br>(8 ports
        TEXT + "fontSize=11;", 570, 360, 190, 50, parent="rack")
 
 # Containers -> 27U rack
-edge("d1", "4x25G Data: 8xLC to MTP8 25G MM OM4 (8f) to 27U", FLEX + TDE_FILL + pin(1, 0.316, 0, 0.133), "c1", "pp27")
-edge("d2", "4x25G Data: 8xLC to MTP8 25G MM OM4 (8f) to 27U", FLEX + TDE_FILL + pin(1, 0.632, 0, 0.84), "c2", "pp27")
+edge("d1", "4x25G Data: 8xLC to MTP12 25G MM OM4 (8 of 12f) to 27U", FLEX + TDE_FILL + pin(1, 0.316, 0, 0.133), "c1", "pp27")
+edge("d2", "4x25G Data: 8xLC to MTP12 25G MM OM4 (8 of 12f) to 27U", FLEX + TDE_FILL + pin(1, 0.632, 0, 0.84), "c2", "pp27")
 edge("k1", "4x RJ45 Cu<br>(4x1G Ctrl)", THIN + BIDIR + TDE_LINE + pin(1, 0.934, 0, 0.25), "c1", "aggsw", label_x=-0.3)
 edge("k2", "4x RJ45 Cu<br>(4x1G Ctrl)", THIN + BIDIR + TDE_LINE + pin(1, 0.092, 0, 0.75), "c2", "aggsw", label_x=-0.3)
 edge("up", "2x LC duplex<br>(2x10G)", THIN + BIDIR + INI_LINE + pin(1, 0.5, 0, 0.507), "aggsw", "pp27")
@@ -113,7 +113,7 @@ edge("tc", "MTP12 10G MM OM4 (12f) to DAQ", FLEX + INI_FILL + "startArrow=block;
 # DAQ barracks
 vertex("ctrlsw", "", TRI + INI, 1200, 465, 60, 90)
 vertex("ctrlsw-note", "Ctrl network switch in DAQ Barracks", TEXT, 1160, 560, 130, 36)
-edge("u1", "2xLC", THIN + BIDIR + DAQ_LINE + pin(1, 0.507, 0, 0.5), "ppdaq", "ctrlsw")
+edge("u1", "2xLC", THIN + BIDIR + INI_LINE + pin(1, 0.507, 0, 0.5), "ppdaq", "ctrlsw")
 vertex("rosw", "Readout<br>Switch in<br>DAQ<br>Barracks", TRI + DAQ, 1340, 380, 100, 260)
 edge("r1", "4x25G", THIN + DAQ_LINE + pin(1, 0.133, 0, 0.2), "ppdaq", "rosw", points=((1310, 230), (1310, 432)))
 edge("r2", "4x25G", THIN + DAQ_LINE + pin(1, 0.84, 0, 0.8), "ppdaq", "rosw", points=((1310, 760), (1310, 588)))
@@ -185,7 +185,7 @@ rows = [
     ("uTCA crates", "8", "320"),
     ("25G data links (LC duplex)", "8", "320"),
     ("Active data fibers", "16", "640"),
-    ("MTP8 breakouts, container to 27U panel", "2", "80"),
+    ("MTP12 breakouts, container to 27U panel (8 active + 4 dark)", "2", "80"),
     ("MTP12 data trunks to DAQ barracks (8 active + 4 dark)", "2", "80"),
     ("1G Ctrl ports on aggregating switch (RJ45 Cu)", "8", "320"),
     ("100G links, readout switch to server", "2", "80"),
@@ -204,7 +204,7 @@ vertex("totals", table, "text;html=1;overflow=fill;strokeColor=none;fillColor=no
        90, 1460, 660, 380)
 
 vertex("notes",
-       f"<b>v{args.version}, draft 2026-11-11</b><br>"
+       f"<b>v{args.version}, draft 2026-11-15</b><br>"
        "Sources: DAQ VD Fiber Plant v3; &quot;VD onDetector Rack View of Cabling&quot; (TMS, stamped 16SEPT2026); "
        "&quot;VD Cryostat 27U Detector Racks&quot; naming drawing (20 N + 20 S racks); "
        "&quot;DTS to TDE White Rabbit Synchronisation Interface&quot; (EDMS 3482906, draft v7.0, 26 Oct 2026).<br><br>"
@@ -219,8 +219,7 @@ vertex("notes",
        "5. Two 10G Ctrl uplinks per 27U rack are assumed.<br>"
        "6. Purchase ownership assumed, not confirmed: racks (FDC I&amp;I); patch cord from the 1G switch to the 27U patch panel "
        "and the mezzanine Ctrl uplink (FDC I&amp;I); 1G Cu management cables from WR hardware (TDE).<br>"
-       "7. Follow-up: who purchases the 2xLC patch cord from the DAQ barracks patch panel to the Ctrl network switch (drawn as DAQ).<br>"
-       "8. The patching between the trunk patch panel and the readout switches (top-of-rack patch panels, MTP-12 into 4-way breakout transceivers, per EDMS 3463072) is not drawn in detail.",
+       "7. The patching between the trunk patch panel and the readout switches (top-of-rack patch panels, MTP-12 into 4-way breakout transceivers, per EDMS 3463072) is not drawn in detail.",
        "rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;", 790, 1460, 960, 380)
 
 ET.indent(mxfile, space="  ")
